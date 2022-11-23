@@ -18,12 +18,17 @@ def bad_word_filter(word: str) -> str:
                 filtered_word += word[i]
             else: 
                 filtered_word += '*'
-    return filtered_word # return 'word' after replace characters
+        return filtered_word # return 'word' after replace characters
+    else:
+        return word
 
 
 if __name__ == '__main__':
-    user_input: str = input('Input your word:')
+    user_input: str = input('Input your sentence:')
     while user_input.strip() == '': # if user input is blank or None, force user to input again
-        user_input = input('Input your word:')
-    filtered_word = bad_word_filter(user_input)
-    print(filtered_word)
+        user_input = input('Input your sentences:')
+    user_input=user_input.split()
+    n=len(user_input)
+    for i in range(0,n):
+        user_input[i]=bad_word_filter(user_input[i])
+    print(user_input)
